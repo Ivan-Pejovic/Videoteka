@@ -6,7 +6,7 @@ namespace Videoteka.Models
     {
         public int Id { get; set; }
         [Required]
-        [StringLength(100)]
+        [StringLength(50)]
         public string Naziv { get; set; }
     }
 }

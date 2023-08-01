@@ -12,7 +12,7 @@ namespace Videoteka.Models
         [Required]
         public int ProcenatPopusta { get; set; }
         [Required]
-        [StringLength(100)]
+        [StringLength(50)]
         public string Naziv { get; set; }
     }
 }

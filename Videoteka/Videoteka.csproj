@@ -182,6 +182,10 @@
     <Compile Include="Migrations\202308011953378_PravljenjeTabelaKupcaITipova.designer.cs">
       <DependentUpon>202308011953378_PravljenjeTabelaKupcaITipova.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202308012023481_PopulisanjeTipova.cs" />
+    <Compile Include="Migrations\202308012023481_PopulisanjeTipova.designer.cs">
+      <DependentUpon>202308012023481_PopulisanjeTipova.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -301,6 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202308011953378_PravljenjeTabelaKupcaITipova.resx">
       <DependentUpon>202308011953378_PravljenjeTabelaKupcaITipova.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202308012023481_PopulisanjeTipova.resx">
+      <DependentUpon>202308012023481_PopulisanjeTipova.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
