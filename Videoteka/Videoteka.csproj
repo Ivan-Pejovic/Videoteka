@@ -178,10 +178,17 @@
     <Compile Include="Migrations\202308011918067_InitialModel.designer.cs">
       <DependentUpon>202308011918067_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202308011953378_PravljenjeTabelaKupcaITipova.cs" />
+    <Compile Include="Migrations\202308011953378_PravljenjeTabelaKupcaITipova.designer.cs">
+      <DependentUpon>202308011953378_PravljenjeTabelaKupcaITipova.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Kupac.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\TipClanstva.cs" />
+    <Compile Include="Models\TipKupca.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -291,6 +298,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202308011918067_InitialModel.resx">
       <DependentUpon>202308011918067_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202308011953378_PravljenjeTabelaKupcaITipova.resx">
+      <DependentUpon>202308011953378_PravljenjeTabelaKupcaITipova.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

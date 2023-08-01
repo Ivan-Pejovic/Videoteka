@@ -28,6 +28,10 @@ namespace Videoteka.Models
         {
         }
 
+        public DbSet<Kupac> Kupci { get; set; }
+        public DbSet<TipKupca> TipoviKupaca { get; set; }
+        public DbSet<TipClanstva> TipoviClanstva { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
