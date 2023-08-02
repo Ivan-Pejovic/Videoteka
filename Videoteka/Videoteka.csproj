@@ -209,13 +209,19 @@
     <Compile Include="Migrations\202308012037276_bugfix.designer.cs">
       <DependentUpon>202308012037276_bugfix.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202308022013045_DodavanjeFilmaIZanraUBazu.cs" />
+    <Compile Include="Migrations\202308022013045_DodavanjeFilmaIZanraUBazu.designer.cs">
+      <DependentUpon>202308022013045_DodavanjeFilmaIZanraUBazu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Film.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Kupac.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\TipClanstva.cs" />
     <Compile Include="Models\TipKupca.cs" />
+    <Compile Include="Models\Zanr.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\KupacViewModel.cs" />
@@ -512,6 +518,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202308012037276_bugfix.resx">
       <DependentUpon>202308012037276_bugfix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202308022013045_DodavanjeFilmaIZanraUBazu.resx">
+      <DependentUpon>202308022013045_DodavanjeFilmaIZanraUBazu.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
