@@ -1,0 +1,44 @@
+﻿@model Videoteka.ViewModels.KupacViewModel
+@{
+    ViewBag.Title = "Kupac Forma";
+}
+
+@using (Html.BeginForm("Save", "Kupci"))
+{
+    @Html.ValidationSummary(true, "Neka polja nisu validna. Molimo Vas da ih ispravite.")
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Kupac.Ime)
+        @Html.TextBoxFor(m => m.Kupac.Ime, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Kupac.Ime)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Kupac.DatumRodjenja)
+        @Html.TextBoxFor(m => m.Kupac.DatumRodjenja, "{0:d MMM yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Kupac.DatumRodjenja)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Kupac.TipKupcaId)
+        @Html.DropDownListFor(m => m.Kupac.TipKupcaId, new SelectList(Model.TipoviKupaca, "Id", "Naziv"), "Izaberite Tip Kupca", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Kupac.TipKupcaId)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Kupac.TipClanstvaId)
+        @Html.DropDownListFor(m => m.Kupac.TipClanstvaId, new SelectList(Model.TipoviClanstva, "Id", "Naziv"), "Izaberite Tip Clanstva", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Kupac.TipClanstvaId)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Kupac.PrimaObavjestenja)
+        @Html.CheckBoxFor(m => m.Kupac.PrimaObavjestenja, new { @class = "checkbox" })
+    </div>
+    @Html.HiddenFor(m => m.Kupac.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">
+        Sacuvaj
+    </button>
+}
+
+@section scripts
+{
+    @Scripts.Render("(\"~/bundles/jqueryval")
+}

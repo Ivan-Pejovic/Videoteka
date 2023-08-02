@@ -5,6 +5,12 @@
 
 <h2> Kupci </h2>
 
+<button type="submit" class="btn btn-primary">
+    @Html.ActionLink("Novi kupac", "Novi", "Kupci", null, new { @class = "nav-link text-light" })
+</button>
+<br />
+<br />
+
 <table id="kupci" class="table table-bordered table-hover table-primary">
     <thead>
         <tr>
@@ -34,7 +40,7 @@
                     {
                         data: "ime",
                         render: function (data, type, kupac) {
-                            return "<a href='/kupci/edit/" + kupac.id + "'>" + kupac.ime + "</a>";
+                            return "<a href='/kupci/izmijeni/" + kupac.id + "'>" + kupac.ime + "</a>";
                         }
                     },
                     {
