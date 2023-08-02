@@ -183,10 +183,13 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\FilmoviController.cs" />
     <Compile Include="Controllers\Api\KupciController.cs" />
+    <Compile Include="Controllers\FilmoviController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KupciController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="DTOs\FilmDTO.cs" />
     <Compile Include="DTOs\KupacDTO.cs" />
     <Compile Include="DTOs\TipClanstvaDTO.cs" />
     <Compile Include="DTOs\TipKupcaDTO.cs" />
@@ -475,6 +478,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Kupci\Index.cshtml" />
     <Content Include="Views\Kupci\KupacForma.cshtml" />
+    <Content Include="Views\Filmovi\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -10,7 +10,7 @@ namespace Videoteka.Controllers
 {
     public class KupciController : Controller
     {
-        public ApplicationDbContext _context;
+        private ApplicationDbContext _context;
 
         public KupciController()
         {
