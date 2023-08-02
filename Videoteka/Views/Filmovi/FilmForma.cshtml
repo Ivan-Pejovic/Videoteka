@@ -1,0 +1,45 @@
+﻿@model Videoteka.ViewModels.FilmViewModel
+@{
+    ViewBag.Title = "Film Forma";
+}
+
+@using (Html.BeginForm("Save", "Filmovi"))
+{
+    @Html.ValidationSummary(true, "Neka polja nisu validna. Molimo Vas da ih ispravite.")
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Film.Naziv)
+        @Html.TextBoxFor(m => m.Film.Naziv, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Film.Naziv)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Film.ZanrId)
+        @Html.DropDownListFor(m => m.Film.ZanrId, new SelectList(Model.Zanrovi, "Id", "Naziv"), "Izaberite Zanr", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Film.ZanrId)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Film.DatumIzdanja)
+        @Html.TextBoxFor(m => m.Film.DatumIzdanja, "{0:d MMM yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Film.DatumIzdanja)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Film.BrojNaStanju)
+        @Html.TextBoxFor(m => m.Film.BrojNaStanju, new { @class = "form-control", type = "number", min = "0", step = "1" })
+        @Html.ValidationMessageFor(m => m.Film.BrojNaStanju)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Film.BrojDostupnih)
+        @Html.TextBoxFor(m => m.Film.BrojDostupnih, new { @class = "form-control", type = "number", min = "0", step = "1" })
+        @Html.ValidationMessageFor(m => m.Film.BrojDostupnih)
+    </div>
+    @Html.HiddenFor(m => m.Film.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">
+        Sacuvaj
+    </button>
+}
+
+@section scripts
+{
+    @Scripts.Render("(\"~/bundles/jqueryval")
+}

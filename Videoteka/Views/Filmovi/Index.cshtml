@@ -5,6 +5,12 @@
 
 <h2> Filmovi </h2>
 
+<button type="submit" class="btn btn-primary">
+    @Html.ActionLink("Novi film", "Novi", "Filmovi", null, new { @class = "nav-link text-light" })
+</button>
+<br />
+<br />
+
 <table id="filmovi" class="table table-bordered table-hover table-primary">
     <thead>
         <tr>
@@ -17,7 +23,6 @@
         </tr>
     </thead>
     <tbody>
-
     </tbody>
 </table>
 
@@ -34,7 +39,7 @@
                     {
                         data: "naziv",
                         render: function (data, type, film) {
-                            return "<a href='/kupci/izmijeni" + film.id + "'>" + film.naziv + "</a>";
+                            return "<a href='/filmovi/izmijeni/" + film.id + "'>" + film.naziv + "</a>";
                         }
                     },
                     {
@@ -65,5 +70,5 @@
                 ]
             });
         })
-    </script>    
+    </script>
 }
