@@ -239,6 +239,10 @@
     <Compile Include="Migrations\202308031845210_SeedUsers.designer.cs">
       <DependentUpon>202308031845210_SeedUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202308031942361_DataAnnotations.cs" />
+    <Compile Include="Migrations\202308031942361_DataAnnotations.designer.cs">
+      <DependentUpon>202308031942361_DataAnnotations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Film.cs" />
@@ -569,6 +573,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202308031845210_SeedUsers.resx">
       <DependentUpon>202308031845210_SeedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202308031942361_DataAnnotations.resx">
+      <DependentUpon>202308031942361_DataAnnotations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
