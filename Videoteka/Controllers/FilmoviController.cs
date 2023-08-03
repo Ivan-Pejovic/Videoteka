@@ -93,15 +93,17 @@ namespace Videoteka.Controllers
             return RedirectToAction("Index", "Filmovi");
         }
 
-        public void Delete(int id)
+        public ActionResult Delete(int id)
         {
             var filmInDb = _context.Filmovi.SingleOrDefault(f => f.Id == id);
 
             if (filmInDb == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return HttpNotFound();
 
             _context.Filmovi.Remove(filmInDb);
             _context.SaveChanges();
+
+            return RedirectToAction("Index", "Filmovi");
         }
     }
 }

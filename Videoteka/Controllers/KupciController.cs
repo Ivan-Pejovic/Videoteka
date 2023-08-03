@@ -93,5 +93,18 @@ namespace Videoteka.Controllers
 
             return RedirectToAction("Index", "Kupci");
         }
+
+        public ActionResult Delete(int id)
+        {
+            var kupacInDb = _context.Kupci.SingleOrDefault(k => k.Id == id);
+
+            if (kupacInDb == null)
+                return HttpNotFound();
+
+            _context.Kupci.Remove(kupacInDb);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Kupci");
+        }
     }
 }

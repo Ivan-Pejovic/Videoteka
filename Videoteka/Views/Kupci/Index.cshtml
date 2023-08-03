@@ -69,13 +69,13 @@
                     {
                         data: "id",
                         render: function (data) {
-                            return "<button class='btn-link js-delete' data-kupac-id=" + data + "> Izbrisi </button>";
+                            return "<a onclick=\"return confirm('Da li ste sigurni da zelite da izbrisete ovog kupca?')\" href='/kupci/delete/" + data + "'> Izbrisi </a>";
                         }
                     }
                 ]
             });
 
-            $("#kupci").on("click", ".js-delete", function () {
+            /*$("#kupci").on("click", ".js-delete", function () {
                 var button = $(this);
 
                 bootbox.confirm("Da li ste sigurni da zelite da izbrisete ovog kupca?", function (result) {
@@ -89,7 +89,7 @@
                         });
                     }
                 })
-            })
+            })*/
         })
     </script>
 }
