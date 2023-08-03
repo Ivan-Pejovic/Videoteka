@@ -4,7 +4,6 @@ using System.Data.Entity;
 using System.Web.Http;
 using Videoteka.DTOs;
 using Videoteka.Models;
-using System.Net;
 
 namespace Videoteka.Controllers.Api
 {
@@ -52,19 +51,35 @@ namespace Videoteka.Controllers.Api
         }
 
         [HttpPut]
-        public void UpdateFilm(int id, FilmDTO filmDTO)
+        public IHttpActionResult UpdateFilm(int id, FilmDTO filmDTO)
         {
             if (!ModelState.IsValid)
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
 
             var filmInDb = _context.Filmovi.SingleOrDefault(f => f.Id == id);
 
             if (filmInDb == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return NotFound();
 
             Mapper.Map(filmDTO, filmInDb);
 
             _context.SaveChanges();
+
+            return Ok();
+        }
+
+        [HttpDelete]
+        public IHttpActionResult DeleteFilm(int id)
+        {
+            var filmInDb = _context.Filmovi.SingleOrDefault(f => f.Id == id);
+
+            if (filmInDb == null)
+                return NotFound();
+
+            _context.Filmovi.Remove(filmInDb);
+            _context.SaveChanges();
+
+            return Ok();
         }
     }
 }

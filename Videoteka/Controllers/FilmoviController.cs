@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
 using Videoteka.Models;
 using Videoteka.ViewModels;
@@ -55,7 +57,6 @@ namespace Videoteka.Controllers
             return View("FilmForma", viewModel);
         }
 
-        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Save(Film film)
         {
@@ -90,6 +91,17 @@ namespace Videoteka.Controllers
             _context.SaveChanges();
 
             return RedirectToAction("Index", "Filmovi");
+        }
+
+        public void Delete(int id)
+        {
+            var filmInDb = _context.Filmovi.SingleOrDefault(f => f.Id == id);
+
+            if (filmInDb == null)
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+
+            _context.Filmovi.Remove(filmInDb);
+            _context.SaveChanges();
         }
     }
 }
