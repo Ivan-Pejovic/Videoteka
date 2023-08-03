@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Web;
-using System.Web.Http;
 using System.Web.Mvc;
 using Videoteka.Models;
 using Videoteka.ViewModels;
@@ -24,11 +20,13 @@ namespace Videoteka.Controllers
             _context.Dispose();
         }
 
+        [Authorize(Roles = "Administrator")]
         public ActionResult Index()
         {
             return View();
         }
 
+        [Authorize(Roles = "Administrator")]
         public ActionResult Novi()
         {
             var zanrovi = _context.Zanrovi.ToList();
@@ -41,6 +39,7 @@ namespace Videoteka.Controllers
             return View("FilmForma", viewModel);
         }
 
+        [Authorize(Roles = "Administrator")]
         public ActionResult Izmijeni(int id)
         {
             var film = _context.Filmovi.SingleOrDefault(f => f.Id == id);
@@ -57,6 +56,7 @@ namespace Videoteka.Controllers
             return View("FilmForma", viewModel);
         }
 
+        [Authorize(Roles = "Administrator")]
         [ValidateAntiForgeryToken]
         public ActionResult Save(Film film)
         {
@@ -93,6 +93,7 @@ namespace Videoteka.Controllers
             return RedirectToAction("Index", "Filmovi");
         }
 
+        [Authorize(Roles = "Administrator")]
         public ActionResult Delete(int id)
         {
             var filmInDb = _context.Filmovi.SingleOrDefault(f => f.Id == id);

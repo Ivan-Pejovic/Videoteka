@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http.Headers;
-using System.Web;
 using System.Web.Mvc;
 using Videoteka.Models;
 using Videoteka.ViewModels;
@@ -18,11 +15,13 @@ namespace Videoteka.Controllers
             _context = new ApplicationDbContext();
         }
 
+        [Authorize(Roles = "Administrator")]
         public ActionResult Index()
         {
             return View();
         }
 
+        [Authorize(Roles = "Administrator")]
         public ActionResult Izmijeni(int id)
         {
             var pozajmica = _context.Pozajmice.SingleOrDefault(p => p.Id == id);
@@ -41,6 +40,7 @@ namespace Videoteka.Controllers
             return View("PozajmicaForma", viewModel);
         }
 
+        [Authorize(Roles = "Administrator")]
         public ActionResult Nova()
         {
             var viewModel = new PozajmicaViewModel
@@ -54,6 +54,7 @@ namespace Videoteka.Controllers
             return View("PozajmicaForma", viewModel);
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Save(Pozajmica pozajmica)
