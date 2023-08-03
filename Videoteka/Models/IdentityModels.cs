@@ -31,8 +31,11 @@ namespace Videoteka.Models
         public DbSet<Kupac> Kupci { get; set; }
         public DbSet<TipKupca> TipoviKupaca { get; set; }
         public DbSet<TipClanstva> TipoviClanstva { get; set; }
+
         public DbSet<Film> Filmovi { get; set; }
         public DbSet<Zanr> Zanrovi { get; set; }
+
+        public DbSet<Pozajmica> Pozajmice { get; set; }
 
         public static ApplicationDbContext Create()
         {

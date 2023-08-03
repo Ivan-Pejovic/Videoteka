@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2> Pozajmice </h2>
+
+<button type="submit" class="btn btn-primary">
+    @Html.ActionLink("Nova Pozajmica", "Nova", "Pozajmice", null, new { @class = "nav-link text-light" })
+</button>
+<br />
+<br />
+
+<table id="pozajmice" class="table table-bordered table-hover table-primary">
+    <thead>
+        <tr>
+            <th scope="col"> Kupac </th>
+            <th scope="auto"> Film </th>
+            <th scope="auto"> Datum pozajmice </th>
+            <th scope="auto"> Napomena </th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            var table = $('#pozajmice').DataTable({
+                ajax: {
+                    url: "/api/pozajmice",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "kupac.ime",
+                        render: function (data, type, pozajmica) {
+                            return "<a href='/pozajmice/izmijeni/" + pozajmica.id + "'>" + pozajmica.kupac.ime + "</a>";
+                        }
+                    },
+                    {
+                        data: "film.naziv"
+                    },
+                    {
+                        data: "datumPozajmice",
+                        render: function (data) {
+                            var date = new Date(data);
+                            var month = date.getMonth() + 1;
+                            return date.getDate() + "." + month + "." + date.getFullYear();
+                        }
+                    },
+                    {
+                        data: "napomena"
+                    }
+                ]
+            });
+        })
+    </script>
+}

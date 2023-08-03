@@ -20,6 +20,9 @@ namespace Videoteka.App_Start
 
             Mapper.CreateMap<Film, FilmDTO>();
             Mapper.CreateMap<FilmDTO, Film>().ForMember(k => k.Id, opt => opt.Ignore());
+
+            Mapper.CreateMap<Pozajmica, PozajmicaDTO>();
+            Mapper.CreateMap<PozajmicaDTO, Pozajmica>().ForMember(k => k.Id, opt => opt.Ignore());
         }
     }
 }

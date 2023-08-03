@@ -1,0 +1,46 @@
+﻿@model Videoteka.ViewModels.PozajmicaViewModel
+@{
+    ViewBag.Title = "PozajmicaForma";
+}
+
+@if (Model.Nova == true)
+{
+    <h2> Nova Pozajmica </h2>
+}
+else
+{
+    <h2> Izmijeni Pozajmicu </h2>
+}
+
+@using (Html.BeginForm("Save", "Pozajmice"))
+{
+    @Html.ValidationSummary(true, "Neka polja nisu validna. Molimo Vas da ih ispravite.")
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Pozajmica.KupacId)
+        @Html.DropDownListFor(m => m.Pozajmica.KupacId, new SelectList(Model.Kupci, "Id", "Ime"), "Izaberite Kupca", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Pozajmica.KupacId)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Pozajmica.FilmId)
+        @Html.DropDownListFor(m => m.Pozajmica.FilmId, new SelectList(Model.Filmovi, "Id", "Naziv"), "Izaberite Film", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Pozajmica.FilmId)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Pozajmica.DatumVracanja)
+        @Html.TextBoxFor(m => m.Pozajmica.DatumVracanja, "{0:d MMM yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Pozajmica.DatumVracanja)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Pozajmica.Napomena)
+        @Html.TextBoxFor(m => m.Pozajmica.Napomena, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Pozajmica.Napomena)
+    </div>
+
+    @Html.HiddenFor(m => m.Pozajmica.Id)
+
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">
+        Sacuvaj
+    </button>
+}
